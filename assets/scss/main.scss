@@ -24,6 +24,7 @@
          background-color:#F1F3F4;
          box-shadow: 0 .5rem 1rem rgba(0,0,0,0.65);
          .album-section {
+             width: 100%;
              @include flexcenter(column);
              img {
                  height: 150px;
@@ -46,6 +47,7 @@
              @include flexcenter(row);
              justify-content: center;
              width: 80%;
+             margin: 0 auto;
              margin-top: 30px;
              div {
                  margin: 0 20px;
