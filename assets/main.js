@@ -58,13 +58,14 @@ function playPauseFuction() {
                 albumCover.classList.add('rotate')
                 ppButton.classList.remove('fa-play')
                 ppButton.classList.add('fa-pause')
+                albumCover.style.animationPlayState = "running"
 
             } else {
                 audio.pause()
                 playing = false
-                albumCover.classList.remove('rotate')
                 ppButton.classList.add('fa-play')
                 ppButton.classList.remove('fa-pause')
+                albumCover.style.animationPlayState = "paused"
             }
     })
     

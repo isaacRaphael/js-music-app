@@ -96,6 +96,7 @@
 }
 .rotate {
     animation: rotateAlbum 4s linear infinite;
+    animation-play-state: running;
 }
 
 @keyframes rotateAlbum {

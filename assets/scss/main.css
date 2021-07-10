@@ -161,6 +161,8 @@
 .rotate {
   -webkit-animation: rotateAlbum 4s linear infinite;
           animation: rotateAlbum 4s linear infinite;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
 }
 
 @-webkit-keyframes rotateAlbum {
