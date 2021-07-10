@@ -1,0 +1,106 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin  flexcenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+.container {
+    @include flexcenter(column);
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to right, rgb(0, 255, 98), rgb(0, 255, 225));
+    font-family: sans-serif;
+     .music-app {
+         height: 550px;
+         width: 300px;
+         @include flexcenter(column);
+         text-align: center;
+         border-radius: 30px;
+         background-color:#F1F3F4;
+         box-shadow: 0 .5rem 1rem rgba(0,0,0,0.65);
+         .album-section {
+             @include flexcenter(column);
+             img {
+                 height: 150px;
+                 width: 150px;
+                 border-radius: 50%;
+                 object-fit: cover;
+                 box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);;
+             }
+             .artist {
+                 padding: 30px;
+                 font-size: 1.2em;
+                 font-weight: 600;
+             }
+             .song {
+                 color: #444;
+             }
+         }  
+         .play-back {
+             padding: 20px 20px 40px 20px;
+             @include flexcenter(row);
+             justify-content: center;
+             width: 80%;
+             margin-top: 30px;
+             div {
+                 margin: 0 20px;
+                 i{
+                     font-size: 1em;
+                 }
+                 i.fa-play
+                 {
+                     font-size: 2.3em;
+                     background: linear-gradient(to right, rgb(0, 255, 98), rgb(0, 255, 225));
+                     background-clip: text;
+                     -webkit-background-clip: text;
+                     -webkit-text-fill-color: transparent;
+                 }
+                 i.fa-pause
+                 {
+                     font-size: 2.3em;
+                     background: linear-gradient(to right, rgb(0, 255, 98), rgb(0, 255, 225));
+                     background-clip: text;
+                     -webkit-background-clip: text;
+                     -webkit-text-fill-color: transparent;
+                 }
+             }     
+         }
+         audio {
+            &::-webkit-media-controls-panel{
+                transform: translateY(-20px);
+            }
+            &::-webkit-media-controls-play-button{
+             display: none;
+            }
+            &::-webkit-media-controls-current-time-display {
+                display: none;
+            }
+            &::-webkit-media-controls-time-remaining-display {
+                display: none;
+            }
+            &::-webkit-media-controls-return-to-realtime-button {
+                display: none;
+            }
+            &::-webkit-media-controls-volume-slider-container{
+                display: none;
+            }
+        }
+     }
+}
+.rotate {
+    animation: rotateAlbum 4s linear infinite;
+}
+
+@keyframes rotateAlbum {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

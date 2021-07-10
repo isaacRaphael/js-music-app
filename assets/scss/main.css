@@ -1,0 +1,185 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, right top, from(#00ff62), to(#00ffe1));
+  background: linear-gradient(to right, #00ff62, #00ffe1);
+  font-family: sans-serif;
+}
+
+.container .music-app {
+  height: 550px;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  border-radius: 30px;
+  background-color: #F1F3F4;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.65);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.65);
+}
+
+.container .music-app .album-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .music-app .album-section img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.container .music-app .album-section .artist {
+  padding: 30px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.container .music-app .album-section .song {
+  color: #444;
+}
+
+.container .music-app .play-back {
+  padding: 20px 20px 40px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  margin-top: 30px;
+}
+
+.container .music-app .play-back div {
+  margin: 0 20px;
+}
+
+.container .music-app .play-back div i {
+  font-size: 1em;
+}
+
+.container .music-app .play-back div i.fa-play {
+  font-size: 2.3em;
+  background: -webkit-gradient(linear, left top, right top, from(#00ff62), to(#00ffe1));
+  background: linear-gradient(to right, #00ff62, #00ffe1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container .music-app .play-back div i.fa-pause {
+  font-size: 2.3em;
+  background: -webkit-gradient(linear, left top, right top, from(#00ff62), to(#00ffe1));
+  background: linear-gradient(to right, #00ff62, #00ffe1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container .music-app audio::-webkit-media-controls-panel {
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+
+.container .music-app audio::-webkit-media-controls-play-button {
+  display: none;
+}
+
+.container .music-app audio::-webkit-media-controls-current-time-display {
+  display: none;
+}
+
+.container .music-app audio::-webkit-media-controls-time-remaining-display {
+  display: none;
+}
+
+.container .music-app audio::-webkit-media-controls-return-to-realtime-button {
+  display: none;
+}
+
+.container .music-app audio::-webkit-media-controls-volume-slider-container {
+  display: none;
+}
+
+.rotate {
+  -webkit-animation: rotateAlbum 4s linear infinite;
+          animation: rotateAlbum 4s linear infinite;
+}
+
+@-webkit-keyframes rotateAlbum {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateAlbum {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=main.css.map */
