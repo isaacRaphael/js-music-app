@@ -44,6 +44,9 @@ window.onload = app()
 function app() {
     playPauseFuction()
     nextBack()
+    audio.addEventListener('ended', ()=>{
+        forward.click()
+    })
 }
 
 function playPauseFuction() {
