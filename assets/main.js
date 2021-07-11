@@ -46,6 +46,7 @@ window.onload = app()
 
 
 function app() {
+    audio.load
     playPauseFuction()
     nextBack()
     
