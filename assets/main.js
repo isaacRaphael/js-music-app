@@ -34,7 +34,11 @@ const ppButton = document.querySelector('#pp-button')
 const artistName = document.querySelector('.artist')
 const songTitle = document.querySelector('.song')
 const musicSource = document.querySelector('#music-source')
+const toggle = document.querySelector(".toggle")
+const initial = document.querySelector(".initial")
+const final = document.querySelector(".final")
 let playing = false
+let justStated = false;
 
 
 
@@ -44,21 +48,29 @@ window.onload = app()
 function app() {
     playPauseFuction()
     nextBack()
-    audio.addEventListener('ended', ()=>{
-        forward.click()
-    })
+    
+        audio.onloadedmetadata = () => {
+            final.innerText =`${parseInt(audio.duration/60)}:${parseInt(audio.duration%60)}`
+            checkPlaying()
+        }   
+        audio.addEventListener('ended', ()=>{
+            forward.click()
+        })
 }
 
 function playPauseFuction() {
     
     play.addEventListener('click', ()=>{
             if (!playing) {
+                toggle.style.animationPlayState = 'running'
                 audio.play()
                 playing = true
                 albumCover.classList.add('rotate')
                 ppButton.classList.remove('fa-play')
                 ppButton.classList.add('fa-pause')
                 albumCover.style.animationPlayState = "running"
+                checkPlaying()
+                
 
             } else {
                 audio.pause()
@@ -66,7 +78,10 @@ function playPauseFuction() {
                 ppButton.classList.add('fa-play')
                 ppButton.classList.remove('fa-pause')
                 albumCover.style.animationPlayState = "paused"
+                toggle.style.animationPlayState = 'paused'
+                checkPlaying()
             }
+            
     })
     
 }
@@ -82,6 +97,7 @@ function nextBack () {
         audio.load()
         playing = false
         play.click()
+        restartAnimation(toggle)
         current++
         } else if (current >= musicData.length-1) {
             current = -1 
@@ -92,6 +108,7 @@ function nextBack () {
             audio.load()
             playing = false
             play.click()
+            restartAnimation(toggle)
             current++
         }
     })
@@ -104,6 +121,7 @@ function nextBack () {
             audio.load()
             playing = false
             play.click()
+            restartAnimation(toggle)
             current--  
         } else if (current === 0) {
             current = musicData.length
@@ -114,7 +132,27 @@ function nextBack () {
             audio.load()
             playing = false
             play.click()
+            restartAnimation(toggle)
             current--  
         }
     })
+    
+}
+
+function checkPlaying () {
+    if (playing) { 
+        toggle.style.animation = `slide ${audio.duration}s linear`
+        // toggle.style.animationPlayState = 'running'
+        setInterval(() => {
+            const currentTime = audio.currentTime
+            initial.innerText = `${parseInt(currentTime / 60)}:${parseInt(currentTime % 60)}`
+           } , 1000)
+        }
+}
+
+function restartAnimation (a){
+    a.style.animationName = 'None'
+    setTimeout(()=> {
+        a.style.animationName = 'slide'
+    },0010)
 }

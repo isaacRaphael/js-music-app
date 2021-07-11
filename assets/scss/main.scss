@@ -9,11 +9,13 @@
     align-items: center;
     flex-direction: $direction;
 }
+
+$gradient-color :  linear-gradient(to right, rgb(0, 255, 98), rgb(0, 255, 225));
 .container {
     @include flexcenter(column);
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to right, rgb(0, 255, 98), rgb(0, 255, 225));
+    background: $gradient-color;
     font-family: sans-serif;
      .music-app {
          height: 550px;
@@ -57,7 +59,7 @@
                  i.fa-play
                  {
                      font-size: 2.3em;
-                     background: linear-gradient(to right, rgb(0, 255, 98), rgb(0, 255, 225));
+                     background:  $gradient-color;
                      background-clip: text;
                      -webkit-background-clip: text;
                      -webkit-text-fill-color: transparent;
@@ -65,7 +67,7 @@
                  i.fa-pause
                  {
                      font-size: 2.3em;
-                     background: linear-gradient(to right, rgb(0, 255, 98), rgb(0, 255, 225));
+                     background:  $gradient-color;
                      background-clip: text;
                      -webkit-background-clip: text;
                      -webkit-text-fill-color: transparent;
@@ -73,8 +75,10 @@
              }     
          }
          audio {
+             display: none;
             &::-webkit-media-controls-panel{
                 transform: translateY(-20px);
+                display: none;
             }
             &::-webkit-media-controls-play-button{
              display: none;
@@ -92,6 +96,38 @@
                 display: none;
             }
         }
+        .slider {
+            // @include flexcenter(row);
+            width: 70%;
+            height: 5px;
+            position: relative;
+            background: black;
+            text-align: initial;
+            border-radius: 15px;
+            .toggle {
+                position: absolute;
+                width: 1em;
+                height: 1em;
+                border-radius: 50%;
+                background: $gradient-color;
+                top: 0;
+                right: 100%;
+                transform: translate(100%, -5px);
+            }
+            .initial, .final {
+                position: absolute;
+                top: 1.2em;
+                font-size: 0.8em;
+            }
+            .initial {
+                left: 0;
+            }
+            .final {
+                right: 0;
+            }
+        }
+
+        
      }
 }
 .rotate {
@@ -105,5 +141,14 @@
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes slide {
+    from {
+        right : 100%;
+    }
+    to {
+        right : 0;
     }
 }
